@@ -1,0 +1,338 @@
+[
+  {
+    "questao": 1,
+    "enunciado": "Em situações de emergência, como desastres naturais, a comunicação eficiente entre equipes de resgate é crucial. Redes ad hoc, como MANETs (Mobile Ad hoc NETworks), desempenham um papel vital nessas circunstâncias. Como a mobilidade dos roteadores em redes ad hoc pode impactar o roteamento?",
+    "alternativas": {
+      "a": "A mobilidade dos roteadores em redes ad hoc torna o roteamento mais eficiente.",
+      "b": "O roteamento em redes ad hoc é independente da mobilidade dos roteadores.",
+      "c": "A mobilidade dos roteadores em redes ad hoc simplifica o roteamento.",
+      "d": "Redes ad hoc são impraticáveis para situações de desastre devido à mobilidade dos roteadores.",
+      "e": "A mobilidade dos roteadores em redes ad hoc torna o roteamento mais desafiador devido às mudanças constantes na topologia."
+    },
+    "resposta_correta": "e"
+  },
+  {
+    "questao": 2,
+    "enunciado": "Ao comparar o formato do datagrama IPv6 com o do IPv4, percebemos mudanças significativas que refletem a evolução do protocolo. Indique a opção que diferencia o formato do datagrama IPv6 em relação ao IPv4.",
+    "alternativas": {
+      "a": "A redução do tamanho do endereço IP para 16 bits.",
+      "b": "A introdução de um campo de 20 bits para rótulo de fluxo.",
+      "c": "A ampliação do campo de soma de verificação do cabeçalho.",
+      "d": "A manutenção da fragmentação e remontagem em roteadores intermediários.",
+      "e": "IPv6 aumenta o tamanho do endereço IP de 32 bits para 128 bits, introduz um cabeçalho aprimorado de 40 bytes e elimina a fragmentação e remontagem em roteadores intermediários."
+    },
+    "resposta_correta": "e"
+  },
+  {
+    "questao": 3,
+    "enunciado": "Qual é a característica marcante das Arquiteturas Distribuídas em redes de computadores?",
+    "alternativas": {
+      "a": "Um servidor central exerce controle sobre o tráfego.",
+      "b": "A simplicidade de implementação é uma marca distintiva dessas arquiteturas.",
+      "c": "Ganham destaque pela maior resistência a falhas, redundância e escalabilidade.",
+      "d": "Sua implementação pode ser mais complexa, demandando cuidados adicionais na coordenação e manutenção.",
+      "e": "Distribuem o controle e os recursos entre diversos pontos."
+    },
+    "resposta_correta": "d"
+  },
+  {
+    "questao": 4,
+    "enunciado": "Em resposta à falta de padronização nas LANs sem fio, uma organização desenvolveu um padrão que revolucionou a conectividade sem fio. Qual é esse padrão?",
+    "alternativas": {
+      "a": "Padrão 802.11",
+      "b": "Padrão Ethernet",
+      "c": "Padrão USB",
+      "d": "Padrão Bluetooth",
+      "e": "Padrão TCP/IP"
+    },
+    "resposta_correta": "a"
+  },
+  {
+    "questao": 5,
+    "enunciado": "Qual é a principal função do protocolo MACA (Multiple Access with Collision Avoidance) em redes sem fio?",
+    "alternativas": {
+      "a": "Facilitar a comunicação entre usuários em diferentes máquinas.",
+      "b": "Estabelecer conexões físicas entre dispositivos.",
+      "c": "Roteamento eficiente de pacotes na sub-rede.",
+      "d": "Evitar colisões e o problema da \"estação exposta\".",
+      "e": "Controlar o tráfego e prevenir o envio excessivo de dados."
+    },
+    "resposta_correta": "d"
+  },
+  {
+    "questao": 6,
+    "enunciado": "Qual é o papel da construção OBJECT-TYPE na Estrutura de Informações de Gerenciamento (SMI)?",
+    "alternativas": {
+      "a": "Armazenar informações sobre o histórico de comunicação entre dispositivos.",
+      "b": "Fornecer uma linguagem de programação específica para o desenvolvimento de módulos MIB.",
+      "c": "Especificar o tipo de dado, o status e a semântica de um objeto gerenciado, representando o cerne do gerenciamento de rede.",
+      "d": "Gerar relatórios de desempenho para a administração local da rede.",
+      "e": "Controlar o acesso a objetos gerenciados com base em políticas de segurança."
+    },
+    "resposta_correta": "c"
+  },
+  {
+    "questao": 7,
+    "enunciado": "O que caracteriza o modelo cliente-servidor nas estruturas de redes, de acordo com Tanenbaum e Wetherall (2011)?",
+    "alternativas": {
+      "a": "Utilização de redes peer-to-peer.",
+      "b": "Compartilhamento de recursos em rede.",
+      "c": "Comunicação entre máquinas cliente e servidor por meio de mensagens",
+      "d": "Interação exclusiva em ambientes empresariais.",
+      "e": "Interconexão independente de computadores."
+    },
+    "resposta_correta": "c"
+  },
+  {
+    "questao": 8,
+    "enunciado": "No desenvolvimento das redes locais (LANs), um visionário profissional foi responsável por projetar e implementar a primeira LAN, utilizando um único cabo coaxial grosso e alcançando uma velocidade revolucionária de 3 Mbps. Quem foi esse pioneiro?",
+    "alternativas": {
+      "a": "Bob Metcalfe",
+      "b": "Tim Berners-Lee",
+      "c": "Norman Abramson",
+      "d": "Larry Page",
+      "e": "Vinton Cerf"
+    },
+    "resposta_correta": "a"
+  },
+  {
+    "questao": 9,
+    "enunciado": "Em que contexto as redes de computadores têm sido utilizadas para economizar nas contas telefônicas, de acordo com Tanenbaum e Wetherall (2011)?",
+    "alternativas": {
+      "a": "Comércio eletrônico em empresas.",
+      "b": "Ligações telefônicas em táxis.",
+      "c": "Utilização de redes peer-to-peer.",
+      "d": "Comunicação entre funcionários em ambientes organizacionais.",
+      "e": "Transmissão de dados entre servidores"
+    },
+    "resposta_correta": "d"
+  },
+  {
+    "questao": 10,
+    "enunciado": "Diversas estratégias foram propostas para integrar gradualmente sistemas IPv4 e IPv6 na Internet. Considerando a abordagem de pilha dupla e a implantação de túneis, destaque a principal diferença entre essas duas estratégias.",
+    "alternativas": {
+      "a": "As duas abordagens são idênticas em termos de implementação e funcionalidade.",
+      "b": "A implantação de túneis depende da atualização completa dos roteadores intermediários para IPv6.",
+      "c": "Na abordagem de pilha dupla, os nós IPv6 têm implementação completa do IPv4 e IPv6, enquanto na implantação de túnel, um túnel IPv4 é usado para transportar datagramas IPv6 entre nós IPv6.",
+      "d": "Na implantação de túneis, os roteadores intermediários alteram diretamente o formato dos datagramas IPv6.",
+      "e": "A abordagem de pilha dupla utiliza túneis IPv4 para transportar datagramas IPv6."
+    },
+    "resposta_correta": "c"
+  },
+  {
+    "questao": 11,
+    "enunciado": "No contexto dos protocolos que regulam a transmissão de informações pela Internet, qual é a função principal do TCP (Transmission Control Protocol) e IP (Internet Protocol)?",
+    "alternativas": {
+      "a": "Facilitar a transmissão somente entre sistemas operacionais similares.",
+      "b": "Limitar a comunicação a dispositivos específicos.",
+      "c": "Garantir a comunicação em redes locais exclusivamente.",
+      "d": "Regular apenas a transmissão de dados em tempo real.",
+      "e": "Permitir a comunicação eficiente entre sistemas finais."
+    },
+    "resposta_correta": "e"
+  },
+  {
+    "questao": 12,
+    "enunciado": "Durante a evolução das redes de computadores, a segurança tornou-se uma preocupação fundamental. Em ambientes de comunicação, a implementação do IPsec é uma prática comum para garantir a confidencialidade e autenticidade das informações transmitidas. Considerando o IPsec, identifique a afirmação correta sobre sua função.",
+    "alternativas": {
+      "a": "Fornecer suporte exclusivo para o IPv6, excluindo o IPv4.",
+      "b": "Oferecer proteção apenas contra ataques externos, negligenciando ameaças internas.",
+      "c": "Substituir completamente o protocolo IP existente por um novo protocolo mais seguro.",
+      "d": "Garantir a segurança na comunicação entre hosts, oferecendo acordos criptográficos, codificação das cargas úteis e autenticação de origem.",
+      "e": "Atuar apenas na camada de aplicação, deixando as camadas inferiores sem proteção."
+    },
+    "resposta_correta": "d"
+  },
+  {
+    "questao": 13,
+    "enunciado": "O que a Lei de Metcalfe sugere em relação ao valor de uma rede, conforme mencionado em nossa primeira aula?",
+    "alternativas": {
+      "a": "O valor de uma rede é proporcional à quantidade de dinheiro investido.",
+      "b": "O valor de uma rede é independente do número de usuários.",
+      "c": "O valor de uma rede é proporcional ao quadrado do número de usuários",
+      "d": "O valor de uma rede é inversamente proporcional à sua complexidade.",
+      "e": "O valor de uma rede é proporcional à velocidade de transmissão de dados."
+    },
+    "resposta_correta": "c"
+  },
+  {
+    "questao": 14,
+    "enunciado": "Em redes que necessitam de comunicação segura, o IPsec desempenha um papel crucial. Destaque um dos serviços oferecidos pelo IPsec que contribui para a segurança das comunicações.",
+    "alternativas": {
+      "a": "Integridade dos dados, permitindo que o hospedeiro destinatário verifique se os campos do cabeçalho do datagrama e a carga útil codificada não foram modificados durante a transmissão.",
+      "b": "A concordância de algoritmos criptográficos para a comunicação.",
+      "c": "O estabelecimento de conexões físicas seguras entre dispositivos.",
+      "d": "Codificação exclusiva da carga útil do datagrama IP.",
+      "e": "Apenas autenticação de origem, sem garantia de integridade dos dados."
+    },
+    "resposta_correta": "a"
+  },
+  {
+    "questao": 15,
+    "enunciado": "Qual é o objetivo principal da segurança baseada no usuário introduzida no SNMPv3?",
+    "alternativas": {
+      "a": "Utilizar exclusivamente autenticação baseada em chaves públicas.",
+      "b": "Permitir o acesso irrestrito a todas as informações de gerenciamento.",
+      "c": "Implementar criptografia avançada para todas as mensagens SNMP.",
+      "d": "Associar informações de segurança, como senhas e chaves, a um usuário identificado por um nome de usuário.",
+      "e": "Aplicar apenas medidas de segurança física aos dispositivos gerenciados."
+    },
+    "resposta_correta": "d"
+  },
+  {
+    "questao": 16,
+    "enunciado": "Qual é a principal diferença entre os modelos de referência OSI e TCP/IP em relação à abstração e à prática?",
+    "alternativas": {
+      "a": "O OSI surgiu após a implementação de suas tecnologias, adotando uma abordagem pragmática.",
+      "b": "O TCP/IP adotou uma abordagem abstrata, enquanto o OSI adotou uma abordagem pragmática.",
+      "c": "Ambos os modelos adotaram uma abordagem pragmática.",
+      "d": "O modelo OSI adotou uma abordagem abstrata, enquanto o TCP/IP adotou uma abordagem pragmática.",
+      "e": "Ambos os modelos adotaram uma abordagem abstrata."
+    },
+    "resposta_correta": "d"
+  },
+  {
+    "questao": 17,
+    "enunciado": "Considerando o processo de transição do IPv4 para o IPv6, destaque uma das principais dificuldades mencionadas na adoção generalizada do IPv6.",
+    "alternativas": {
+      "a": "A resistência dos usuários em adotar tecnologias mais recentes.",
+      "b": "A falta de suporte nativo para IPv6 em dispositivos modernos.",
+      "c": "A mudança de protocolos na camada de rede é complexa e demorada, devido à necessidade de substituir infraestruturas existentes e garantir a interoperabilidade entre sistemas IPv4 e IPv6.",
+      "d": "O custo elevado associado à implementação do IPv6.",
+      "e": "A complexidade do IPv6 em comparação com o IPv4."
+    },
+    "resposta_correta": "c"
+  },
+  {
+    "questao": 18,
+    "enunciado": "Qual é a principal função da Camada de Apresentação em um modelo de referência de redes?",
+    "alternativas": {
+      "a": "Gerenciar estruturas de dados abstratas.",
+      "b": "Estabelecer conexões físicas entre dispositivos.",
+      "c": "Transmitir bits pelo canal de comunicação.",
+      "d": "Rotear pacotes na sub-rede.",
+      "e": "Controlar o tráfego e prevenir o envio excessivo de dados."
+    },
+    "resposta_correta": "a"
+  },
+  {
+    "questao": 19,
+    "enunciado": "Como a ASN.1 (Abstract Syntax Notation One) contribui para a interoperabilidade em redes de computadores?",
+    "alternativas": {
+      "a": "Fornecendo uma linguagem de definição de dados independente de máquina para a transmissão de dados entre sistemas heterogêneos.",
+      "b": "Utilizando exclusivamente criptografia para proteção de dados.",
+      "c": "Implementando protocolos exclusivos para cada tipo de sistema operacional.",
+      "d": "Fornecendo uma linguagem de programação padronizada para todas as aplicações de rede.",
+      "e": "Controlando o acesso à rede com base em identificadores de dispositivos."
+    },
+    "resposta_correta": "a"
+  },
+  {
+    "questao": 20,
+    "enunciado": "Por que a autenticação é um componente crucial da segurança no SNMPv3?",
+    "alternativas": {
+      "a": "Para estabelecer um controle de acesso baseado em funções.",
+      "b": "Para criptografar todas as mensagens SNMP transmitidas.",
+      "c": "Para proteger contra adulterações nas mensagens SNMP, utilizando a técnica de MAC (Message Authentication Code) com uma chave secreta compartilhada.",
+      "d": "Para prevenir ataques de reprodução por meio de nonces e valores baseados em contadores.",
+      "e": "Para garantir o anonimato dos usuários ao acessar a rede."
+    },
+    "resposta_correta": "c"
+  },
+  {
+    "questao": 21,
+    "enunciado": "Na construção de LANs sem fio, a detecção limitada de colisões em tempo real é uma característica distinta. Como é mitigado o problema da \"estação oculta\" nesse contexto?",
+    "alternativas": {
+      "a": "Mediante o uso de cabos de fibra óptica.",
+      "b": "Utilizando roteadores de alta capacidade.",
+      "c": "Através do protocolo RTS/CTS.",
+      "d": "Através da utilização de switches inteligentes.",
+      "e": "Pela implementação do protocolo TCP."
+    },
+    "resposta_correta": "c"
+  },
+  {
+    "questao": 22,
+    "enunciado": "Qual é a principal função da Camada de Rede em um modelo de referência de redes?",
+    "alternativas": {
+      "a": "Gerenciar estruturas de dados abstratas.",
+      "b": "Aceitar dados da camada acima, dividindo-os quando necessário.",
+      "c": "Permitir que usuários em diferentes máquinas estabeleçam sessões de comunicação.",
+      "d": "Controlar a operação da sub-rede e atualização automática de rotas.",
+      "e": "Transformar um canal de transmissão normal em uma linha livre de erros."
+    },
+    "resposta_correta": "d"
+  },
+  {
+    "questao": 23,
+    "enunciado": "Qual é uma das características das Redes Locais (LANs)?",
+    "alternativas": {
+      "a": "Exemplo de Tecnologia: Ethernet (com fio) ou Wi-Fi (sem fio).",
+      "b": "Alcance: normalmente, dentro de um raio de alguns metros.",
+      "c": "Abrange uma cidade ou área metropolitana.",
+      "d": "Finalidade: facilitar a comunicação entre dispositivos pessoais próximos.",
+      "e": "Proporcionar uma comunicação localizada e direta."
+    },
+    "resposta_correta": "a"
+  },
+  {
+    "questao": 24,
+    "enunciado": "Na abordagem de arquiteturas de redes centralizadas, qual é uma das preocupações latentes destacadas?",
+    "alternativas": {
+      "a": "Simplicidade de implementação.",
+      "b": "Controlar a operação da sub-rede e atualização automática de rotas.",
+      "c": "Distribuir o controle e os recursos entre diversos pontos.",
+      "d": "Vulnerabilidade a falhas no ponto central.",
+      "e": "Facilitar a comunicação entre dispositivos pessoais próximos."
+    },
+    "resposta_correta": "d"
+  },
+  {
+    "questao": 25,
+    "enunciado": "Qual é a principal função do protocolo de roteamento OSPF (Open Shortest Path First) em redes de computadores?",
+    "alternativas": {
+      "a": "Estabelecer conexões físicas entre dispositivos.",
+      "b": "Controlar o tráfego e prevenir o envio excessivo de dados.",
+      "c": "Roteamento eficiente de pacotes na sub-rede, utilizando o algoritmo de Dijkstra.",
+      "d": "Fornecer uma linguagem de definição de dados independente de máquina.",
+      "e": "Gerenciar estruturas de dados abstratas."
+    },
+    "resposta_correta": "c"
+  },
+  {
+    "questao": 26,
+    "enunciado": "Em um ambiente de rede, qual é a principal função do protocolo ARP (Address Resolution Protocol)?",
+    "alternativas": {
+      "a": "Converter endereços IP em endereços MAC.",
+      "b": "Roteamento eficiente de pacotes na sub-rede.",
+      "c": "Estabelecer conexões físicas entre dispositivos.",
+      "d": "Controlar o tráfego e prevenir o envio excessivo de dados.",
+      "e": "Fornecer uma linguagem de definição de dados independente de máquina."
+    },
+    "resposta_correta": "a"
+  },
+  {
+    "questao": 27,
+    "enunciado": "Qual é a principal função do protocolo DNS (Domain Name System) em redes de computadores?",
+    "alternativas": {
+      "a": "Converter endereços IP em endereços MAC.",
+      "b": "Resolver nomes de domínio em endereços IP.",
+      "c": "Roteamento eficiente de pacotes na sub-rede.",
+      "d": "Estabelecer conexões físicas entre dispositivos.",
+      "e": "Controlar o tráfego e prevenir o envio excessivo de dados."
+    },
+    "resposta_correta": "b"
+  },
+  {
+    "questao": 28,
+    "enunciado": "Em um modelo de rede, qual é a principal função da Camada de Transporte?",
+    "alternativas": {
+      "a": "Gerenciar estruturas de dados abstratas.",
+      "b": "Aceitar dados da camada acima, dividindo-os quando necessário.",
+      "c": "Fornecer comunicação fim a fim entre sistemas finais.",
+      "d": "Controlar a operação da sub-rede e atualização automática de rotas.",
+      "e": "Transformar um canal de transmissão normal em uma linha livre de erros."
+    },
+    "resposta_correta": "c"
+  }
+]

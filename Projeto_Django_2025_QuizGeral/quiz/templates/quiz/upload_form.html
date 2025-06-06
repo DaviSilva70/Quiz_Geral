@@ -1,0 +1,145 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upload de Quiz</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --bs-primary: #0d6efd;
+            --bs-danger: #dc3545;
+        }
+
+        .errorlist { 
+            color: var(--bs-danger);
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: .25rem;
+            border: 1px solid #dee2e6;
+        }
+
+        .form-control:focus {
+            border-color: var(--bs-primary);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        .alert-danger {
+            border-left: 4px solid var(--bs-danger);
+        }
+
+        .alert-danger ul {
+            padding-left: 1.2rem;
+        }
+
+        .card {
+            border: none;
+        }
+
+        .btn-primary {
+            padding: 0.75rem;
+            font-weight: 500;
+        }
+
+        .list-group-item {
+            border-left: none;
+            border-right: none;
+        }
+
+        .list-group-item:first-child {
+            border-top: none;
+        }
+
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h1 class="card-title text-center mb-4">Upload do Quiz</h1>
+                          {% if error_message %}
+                            <div class="alert alert-danger" role="alert">
+                                <h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill me-2"></i>Erro no Upload</h5>
+                                <p class="mb-0">{{ error_message }}</p>
+                                <hr>
+                                <p class="mb-0">Por favor, verifique se o arquivo:</p>
+                                <ul class="mb-0 mt-2">
+                                    <li>Está no formato correto (conforme exemplo abaixo)</li>
+                                    <li>Não está vazio</li>
+                                    <li>Possui pelo menos uma pergunta válida</li>
+                                    <li>Está codificado em UTF-8</li>
+                                </ul>
+                            </div>
+                        {% endif %}
+
+                        <form method="post" enctype="multipart/form-data" class="mb-4">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="{{ form.file.id_for_label }}" class="form-label">
+                                    <i class="bi bi-file-text me-2"></i>Selecione o arquivo de quiz
+                                </label>
+                                {% render_field form.file class="form-control" accept=".txt" %}
+                                {% if form.file.errors %}
+                                    <div class="alert alert-danger mt-2">
+                                        <i class="bi bi-exclamation-circle me-2"></i>{{ form.file.errors }}
+                                    </div>
+                                {% endif %}                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-upload me-2"></i>Carregar e Iniciar Quiz
+                            </button>
+                        </form>
+
+                        <div class="card mt-4 border">
+                            <div class="card-header bg-light">
+                                <h5 class="card-title mb-0">
+                                    <i class="bi bi-info-circle me-2"></i>Instruções
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">O arquivo deve estar no seguinte formato:</p>
+                                <pre class="bg-light p-3 mb-3">Qual é a capital do Brasil?
+* Rio de Janeiro
++ Brasília
+* São Paulo
+* Salvador
+
+Qual é o maior planeta do sistema solar?
+* Saturno
++ Júpiter
+* Urano
+* Netuno</pre>
+                                
+                                <h6 class="mb-3">Regras do formato:</h6>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Cada pergunta deve ser seguida por suas alternativas</li>
+                                    <li class="list-group-item">Use * para alternativas incorretas</li>
+                                    <li class="list-group-item">Use + para a alternativa correta</li>
+                                    <li class="list-group-item">Deixe uma linha em branco entre cada pergunta</li>
+                                    <li class="list-group-item">Cada pergunta deve ter exatamente uma alternativa correta</li>
+                                    <li class="list-group-item">O arquivo deve estar em formato texto (UTF-8)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

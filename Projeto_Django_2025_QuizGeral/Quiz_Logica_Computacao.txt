@@ -1,0 +1,207 @@
+Qual é a capital do Brasil?
+* Rio de Janeiro
++ Brasília
+* São Paulo
+* Salvador
+
+Qual é o maior planeta do sistema solar?
+* Saturno
++ Júpiter
+* Urano
+* Netuno
+
+O que é uma proposição?
+* Uma frase interrogativa
++ Uma afirmação que pode ser verdadeira ou falsa
+* Uma sentença aberta com variáveis
+* Um comando de computador
+
+Qual dos seguintes é um exemplo de proposição?
+* Que horas são?
+* x + 2 = 5
++ Hoje é segunda-feira.
+* Corra rápido!
+
+Qual é o valor lógico da negação de uma proposição falsa?
++ Verdadeiro
+* Falso
+* Ambíguo
+* Nenhum
+
+Qual operador lógico representa a conjunção?
++ ∧
+* ∨
+* →
+* ↔
+
+Qual operador lógico representa a disjunção?
+* ∧
++ ∨
+* ¬
+* ⊕
+
+Se p é verdadeiro e q é falso, qual é o valor de p ∧ q?
+* Verdadeiro
++ Falso
+* Indeterminado
+* Nulo
+
+Se p é verdadeiro e q é falso, qual é o valor de p ∨ q?
++ Verdadeiro
+* Falso
+* Depende do contexto
+* Nulo
+
+Qual é a tabela-verdade da implicação p → q?
++ V, F, V, V
+* V, F, F, V
+* V, V, F, V
+* F, V, V, V
+
+Qual é o valor de p ↔ q quando p e q têm valores lógicos diferentes?
+* Verdadeiro
++ Falso
+* Ambíguo
+* Nenhum
+
+Qual é a contrapositiva da afirmação "Se chover, então fico em casa"?
+* Se não chover, então não fico em casa
+* Se fico em casa, então choveu
++ Se não fico em casa, então não choveu
+* Se choveu, então fico em casa
+
+Qual das opções representa a lei da dupla negação?
++ ¬(¬p) ≡ p
+* ¬(p ∧ q) ≡ ¬p ∨ ¬q
+* p ∨ ¬p ≡ Verdadeiro
+* p ∧ ¬p ≡ Falso
+
+Qual é a expressão lógica equivalente a "não (p e q)"?
+* ¬p ∧ ¬q
++ ¬p ∨ ¬q
+* p ∨ q
+* p ∧ q
+
+Qual é a expressão lógica equivalente a "não (p ou q)"?
++ ¬p ∧ ¬q
+* ¬p ∨ ¬q
+* p ∨ q
+* p ∧ q
+
+Qual é a tautologia entre as opções abaixo?
+* p ∧ ¬p
++ p ∨ ¬p
+* p → ¬p
+* ¬p → p
+
+Qual é a contradição entre as opções abaixo?
++ p ∧ ¬p
+* p ∨ ¬p
+* p → ¬p
+* ¬p → p
+
+O que significa dizer que uma argumentação é válida?
+* Todas as premissas são verdadeiras
++ A conclusão é sempre verdadeira se as premissas forem verdadeiras
+* A conclusão é falsa
+* As premissas são irrelevantes
+
+Qual regra de inferência é usada na estrutura:
+   p→q
+   p
+   -----
+   ∴q
++ Modus Ponens
+* Modus Tollens
+* Silogismo Disjuntivo
+* Silogismo Hipotético
+
+Qual regra de inferência é usada na estrutura:
+   p→q
+   ¬q
+   -----
+   ∴¬p
+* Modus Ponens
++ Modus Tollens
+* Silogismo Disjuntivo
+* Silogismo Hipotético
+
+Qual regra de inferência é usada na estrutura:
+   p∨q
+   ¬p
+   -----
+   ∴q
+* Modus Ponens
+* Modus Tollens
++ Silogismo Disjuntivo
+* Silogismo Categórico
+
+Qual é o nome da regra usada na estrutura:
+   p→q
+   q→r
+   -----
+   ∴p→r
+* Modus Ponens
+* Modus Tollens
+* Silogismo Disjuntivo
++ Silogismo Hipotético
+
+O que é uma fórmula bem formada (fbf)?
+* Uma sequência aleatória de símbolos
++ Uma fórmula com sintaxe correta
+* Uma fórmula sem conectivos
+* Uma fórmula com erro de lógica
+
+Qual é a principal diferença entre lógica clássica e lógica fuzzy?
+* A clássica tem infinitos valores de verdade
++ A fuzzy permite valores intermediários entre verdadeiro e falso
+* A clássica é mais complexa
+* A fuzzy usa apenas 0 e 1
+
+Em programação lógica, qual linguagem é mais conhecida?
+* Java
++ Prolog
+* Python
+* C++
+
+O que é um predicado?
+* Uma sentença fixa
++ Uma função que retorna verdadeiro ou falso
+* Um número real
+* Uma constante lógica
+
+Qual é a forma simbólica da frase "Todo homem é mortal"?
++ ∀x (Homem(x) → Mortal(x))
+* ∃x (Homem(x) ∧ Mortal(x))
+* ∀x (Mortal(x) → Homem(x))
+* ∃x (Homem(x) → Mortal(x))
+
+Qual é a forma simbólica da frase "Existe algum animal que voa"?
+* ∀x (Animal(x) → Voa(x))
++ ∃x (Animal(x) ∧ Voa(x))
+* ∀x (Voa(x) → Animal(x))
+* ∃x (Animal(x) → Voa(x))
+
+O que significa o quantificador universal (∀)?
++ Para todos
+* Existe pelo menos um
+* Existe exatamente um
+* Nenhum
+
+O que significa o quantificador existencial (∃)?
+* Para todos
++ Existe pelo menos um
+* Para nenhum
+* Para alguns poucos
+
+Qual é o valor lógico da afirmação "Para todo x, x² ≥ 0", considerando x ∈ ℝ?
++ Verdadeiro
+* Falso
+* Dependente de x
+* Não é uma proposição
+
+Qual é o valor lógico da afirmação "Existe x tal que x² < 0", considerando x ∈ ℝ?
++ Falso
+* Verdadeiro
+* Depende de x
+* Não é uma proposição

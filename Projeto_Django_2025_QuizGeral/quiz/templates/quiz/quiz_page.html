@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz Interativo</title><!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --soft-primary: #2670b1; /* Azul suave */
+            --soft-primary-hover: #a0c4ff;
+            --soft-success: #30ad30; /* Verde pastel */
+            --soft-danger: #ec4646;  /* Vermelho/rosa suave */
+            --soft-info: #239494;   /* Teal/ciano suave */
+            --text-color-dark: #3c4c66; /* Cinza escuro suave */
+            --text-color-light: #ffffff;
+            --card-bg: #ffffff;
+            --body-bg: #f7fafc; /* Um cinza ainda mais claro que o bg-light do bootstrap */
+        }
+
+        body {
+            background-color: var(--body-bg) !important; /* Forçar sobre o bg-light se necessário */
+            color: var(--text-color-dark);
+        }
+
+        .choice-btn {
+            transition: all 0.3s ease;
+            border: 1px solid var(--soft-primary);
+            background-color: var(--card-bg);
+            color: var(--soft-primary);
+            font-weight: 500;
+        }
+        .choice-btn:hover {
+            transform: translateY(-2px);
+            background-color: var(--soft-primary-hover);
+            color: var(--text-color-light);
+            border-color: var(--soft-primary-hover);
+        }
+        .choice-btn.correct {
+            background-color: var(--soft-success) !important;
+            color: var(--text-color-light) !important;
+            border-color: var(--soft-success) !important;
+        }
+        .choice-btn.incorrect {
+            background-color: var(--soft-danger) !important;
+            color: var(--text-color-light) !important;
+            border-color: var(--soft-danger) !important;
+        }
+        .quiz-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+        }
+        
+        /* Estilos simplificados para o card de resultados */
+        #quiz-finished-message {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        #quiz-finished-message.show {
+            display: block !important;
+            opacity: 1;
+        }
+        
+        /* Garantindo que os botões e o grid sejam sempre visíveis */
+        #quiz-finished-message .d-grid {
+            display: grid !important;
+            gap: 1rem;
+        }
+
+        /* Estilos para o botão de próxima questão */
+        #next-question-btn {
+            transition: all 0.3s ease;
+        }
+        
+        #next-question-btn:not([style*="display: none"]) {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        #quiz-finished-message .btn {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        .badge {
+            transition: all 0.3s ease;
+        }
+        
+        .badge:hover {
+            transform: scale(1.1);
+        }
+        .quiz-card .card-title {
+            color: var(--text-color-dark);
+        }
+        .score-badge {
+            font-size: 1.1em;
+        }
+
+        .final-button {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .final-button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .final-button.primary {
+            background-color: var(--soft-primary);
+            color: var(--text-color-light);
+        }
+
+        .final-button.info {
+            background-color: var(--soft-info);
+            color: var(--text-color-light);
+        }
+        
+        /* Estilo específico para o botão de próxima questão */
+        #next-question-btn[style*="display: block"] {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        /* Garante que o botão tenha um estilo consistente */
+        #next-question-btn {
+            transition: opacity 0.3s ease;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="quiz-card">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="card-title text-center mb-4">Quiz Interativo</h1>
+
+                    {% if error_message %}
+                        <div class="alert alert-danger text-center" role="alert">
+                            {{ error_message }}
+                            <div class="mt-3">
+                                <a href="{% url 'quiz:upload_quiz_file' %}" class="btn btn-outline-danger">Tentar carregar outro arquivo</a>
+                            </div>
+                        </div>
+                    {% elif not question_data %}
+                        <div class="alert alert-warning text-center" role="alert">
+                            Nenhuma pergunta foi carregada. Por favor,
+                            <a href="{% url 'quiz:upload_quiz_file' %}" class="alert-link">faça o upload de um arquivo de quiz</a>.
+                        </div>
+                    {% else %}
+                        <div class="d-flex justify-content-between align-items-center mb-4" style="color: var(--text-color-dark);">
+                            <span class="score-badge badge" style="background-color: var(--soft-primary); color: var(--text-color-light);">
+                                Pontuação: <span id="current-score">0</span>
+                            </span>
+                            <span class="score-badge badge" style="background-color: var(--soft-info); color: var(--text-color-light);">
+                                Progresso: <span id="answered-count">0</span> / <span id="total-questions-display">{{ total_questions }}</span>
+                            </span>
+                        </div>
+
+                        <div id="question-block" class="mb-4" data-question-index="{{ question_data.index }}">
+                            <h4 class="question-text mb-4">{{ question_data.text }}</h4>
+                            <div class="choices d-grid gap-2">
+                                {% for choice in question_data.choices %}
+                                    <button class="choice-btn btn btn-outline-primary" data-answer="{{ choice.text|escape }}">
+                                        {{ choice.text }}
+                                    </button>
+                                {% endfor %}
+                            </div>
+                        </div>                        <div id="feedback-area" class="alert" style="display:contents; color: var(--text-color-light);" role="alert"></div>
+                        
+                        <button id="next-question-btn" class="btn btn-success w-100 mt-3" style="display: none;">
+                            <i class="bi bi-arrow-right-circle me-2"></i>Próxima Pergunta
+                        </button>
+                    {% endif %}
+                </div>
+            </div>            
+            <!-- Card de resultados -->
+            <div id="quiz-finished-message" class="card mt-4">
+                <div class="card-body text-center p-4">
+                    <h2 class="card-title mb-4">Quiz Concluído!</h2>
+                    
+                    <!-- Resultados -->
+                    <div class="mb-4">
+                        <!-- Acertos -->
+                        <div class="alert alert-success mb-3">
+                            <h5>Acertos</h5>
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                <span id="final-score" class="badge bg-primary fs-4">0</span>
+                                <span>de</span>
+                                <span id="total-q-final" class="badge bg-secondary fs-4">0</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Erros -->
+                        <div class="alert alert-danger">
+                            <h5>Erros</h5>
+                            <span id="final-errors" class="badge bg-primary fs-4">0</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Botões -->
+                    <div class="d-grid gap-3">
+                        <a href="{% url 'quiz:start_quiz' %}" class="btn btn-primary">
+                            <i class="bi bi-arrow-repeat me-2"></i>Responder Novamente
+                        </a>
+                        <a href="{% url 'quiz:upload_quiz_file' %}" class="btn btn-info text-white">
+                            <i class="bi bi-upload me-2"></i>Carregar Outro Quiz
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">    <!-- Bootstrap JS and Custom Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const elements = {
+            questionBlock: document.getElementById('question-block'),
+            feedbackArea: document.getElementById('feedback-area'),
+            nextQuestionBtn: document.getElementById('next-question-btn'),
+            quizFinishedMessage: document.getElementById('quiz-finished-message'),
+            currentScoreEl: document.getElementById('current-score'),
+            answeredCountEl: document.getElementById('answered-count'),
+            totalQuestionsDisplayEl: document.getElementById('total-questions-display')
+        };
+
+        const state = {
+            score: 0,
+            answeredCount: 0,
+            nextQuestionData: null
+        };
+
+        // Esconde o botão de próxima questão inicialmente
+        if (elements.nextQuestionBtn) {
+            elements.nextQuestionBtn.style.display = 'none';
+        }
+
+        // Handler para cliques nas alternativas
+        document.querySelector('.choices')?.addEventListener('click', async function(event) {
+            if (!event.target.classList.contains('choice-btn')) return;
+            
+            const choiceButton = event.target;
+            const selectedAnswer = choiceButton.dataset.answer;
+            const currentQuestionIndex = elements.questionBlock.dataset.questionIndex;
+
+            // Desabilita todos os botões após a escolha
+            document.querySelectorAll('.choice-btn').forEach(btn => btn.disabled = true);
+
+            try {
+                const response = await fetch("{% url 'quiz:submit_answer' %}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `question_index=${currentQuestionIndex}&answer=${encodeURIComponent(selectedAnswer)}`
+                });
+                
+                const data = await response.json();
+                
+                // Atualiza a interface com o resultado
+                if (data.correct) {
+                    choiceButton.classList.add('correct');
+                    elements.feedbackArea.style.backgroundColor = 'var(--soft-success)';
+                    state.score++;
+                    elements.currentScoreEl.textContent = state.score;
+                } else {
+                    choiceButton.classList.add('incorrect');
+                    document.querySelectorAll('.choice-btn').forEach(btn => {
+                        if (btn.dataset.answer === data.correct_answer) {
+                            btn.classList.add('correct');
+                        }
+                    });
+                    elements.feedbackArea.style.backgroundColor = 'var(--soft-danger)';
+                }
+
+                state.answeredCount++;
+                elements.answeredCountEl.textContent = state.answeredCount;
+                elements.feedbackArea.textContent = data.feedback_message;
+                elements.feedbackArea.style.display = 'block';
+
+                // Gerencia próxima questão ou finalização
+                if (data.next_question) {
+                    state.nextQuestionData = data.next_question;
+                    elements.nextQuestionBtn.style.display = 'block';
+                } else if (data.quiz_finished) {
+                    document.getElementById('final-score').textContent = data.score;
+                    document.getElementById('total-q-final').textContent = data.total_questions;
+                    document.getElementById('final-errors').textContent = data.total_questions - data.score;
+                    
+                    elements.questionBlock.style.display = 'none';
+                    elements.feedbackArea.style.display = 'none';
+                    elements.nextQuestionBtn.style.display = 'none';
+                    elements.quizFinishedMessage.style.display = 'block';
+                    elements.quizFinishedMessage.classList.add('show');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                elements.feedbackArea.textContent = 'Erro ao processar resposta. Tente novamente.';
+                elements.feedbackArea.style.backgroundColor = 'var(--soft-danger)';
+                elements.feedbackArea.style.display = 'block';
+                document.querySelectorAll('.choice-btn').forEach(btn => btn.disabled = false);
+            }
+        });
+
+        // Handler para próxima questão
+        elements.nextQuestionBtn?.addEventListener('click', function() {
+            if (!state.nextQuestionData) return;
+
+            elements.questionBlock.dataset.questionIndex = state.nextQuestionData.index;
+            document.querySelector('.question-text').textContent = state.nextQuestionData.text;
+
+            const choicesContainer = document.querySelector('.choices');
+            choicesContainer.innerHTML = state.nextQuestionData.choices
+                .map(choice => `
+                    <button class="choice-btn btn btn-outline-primary" data-answer="${choice.text}">
+                        ${choice.text}
+                    </button>
+                `).join('');
+
+            elements.feedbackArea.style.display = 'none';
+            elements.feedbackArea.style.backgroundColor = '';
+            elements.nextQuestionBtn.style.display = 'none';
+
+            document.querySelectorAll('.choice-btn').forEach(btn => {
+                btn.disabled = false;
+                btn.classList.remove('correct', 'incorrect');
+            });
+        });
+    });
+    </script>
+</body>
+</html>
